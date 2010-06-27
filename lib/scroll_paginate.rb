@@ -1,1 +1,3 @@
-# ScrollPaginate
+module ScrollPaginate	
+
+end
