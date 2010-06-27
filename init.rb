@@ -3,7 +3,7 @@
 ## But at least rescue the action in production
 ##
 begin
-  require File.dirname(__FILE__) + '/install_files'
+  require File.dirname(__FILE__) + '/install'
 rescue
   raise $! unless Rails.env == 'production'
 end
