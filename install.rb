@@ -15,7 +15,7 @@ Dir.chdir(Dir.getwd.sub(/vendor.*/, '')) do
 
 	copy_files("/public", "/public", directory)
 
-	available_files = Dir[File.join(directory, 'jqpageflow', '*')].collect { |d| File.basename d }
+	jqpageflow_resources = Dir[File.join(directory, 'jqpageflow', '*')].collect { |d| File.basename d }
 	[ :stylesheets, :javascripts, :images].each do |file_type|
 		path = "/public/#{file_type}/scroll_paginate"
 		copy_files(path, path, directory)
@@ -24,9 +24,9 @@ Dir.chdir(Dir.getwd.sub(/vendor.*/, '')) do
 		  f.puts "Any changes made to files in sub-folders will be lost."
 		end
 
-		available_files.each do |file|
-		  source = "/frontends/#{frontend}/#{file_type}/"
-		  destination = "/public/#{file_type}/scroll_paginate/#{file}"
+		jqpageflow_resources.each do |jqpageflow_resource|
+		  source = "/jqpageflow/#{jqpageflow_resource}/#{file_type}/"
+		  destination = "/public/#{file_type}/scroll_paginate/#{jqpageflow_resource}"
 		  copy_files(source, destination, directory)
 		end
 	end
