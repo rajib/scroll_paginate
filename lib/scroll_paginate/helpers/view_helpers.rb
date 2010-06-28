@@ -25,8 +25,7 @@ module ScrollPaginate
       #	the page calling the plugin. Defaults to "images/scroll_paginate/default/loader.gif" ), 
       #	:debug ( optional :DESCRIPTION => When set to 1, the plugin will print debugging information to the 
       #	console (firebug). Defaults to 0  ) %>
-
-      def	scroll_paginate(options)
+      def scroll_paginate(options)
         # initialize variables
         setup_options(options)
         html = "<script type='text/javascript'>
@@ -43,19 +42,19 @@ module ScrollPaginate
               });
             });
             </script>"
-          end
+      end
 
-          protected
-          def	setup_options(options)
-            @url = options[:url]
-            @total_results = options[:total_results]
-            @container = options[:container]
-            @current_page = options[:current_page] || 0
-            @per_page = options[:per_page] || 20
-            @pager_var = options[:pager_var] || 'p'
-            @loader_img_path = options[:loader_img_path] || 'images/scroll_paginate/default/loader.gif'
-            @debug = options[:debug] || 1
-          end
+      protected
+      def	setup_options(options)
+        @url = options[:url]
+        @total_results = options[:total_results]
+        @container = options[:container]
+        @current_page = options[:current_page] || 0
+        @per_page = options[:per_page] || 20
+        @pager_var = options[:pager_var] || 'p'
+        @loader_img_path = options[:loader_img_path] || 'images/scroll_paginate/default/loader.gif'
+        @debug = options[:debug] || 1
+      end
         end
       end
     end
