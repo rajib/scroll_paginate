@@ -45,7 +45,7 @@ module ScrollPaginate
       end
 
       protected
-      def	setup_options(options)
+      def setup_options(options)
         @url = options[:url]
         @total_results = options[:total_results]
         @container = options[:container]
@@ -55,6 +55,6 @@ module ScrollPaginate
         @loader_img_path = options[:loader_img_path] || 'images/scroll_paginate/default/loader.gif'
         @debug = options[:debug] || 1
       end
-        end
-      end
     end
+  end
+end
