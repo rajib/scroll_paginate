@@ -4,13 +4,13 @@ module ScrollPaginate
       # DESCRIPTION: will generete the javascript block for enebaling 
       #	scroll pagination.
       # EXAMPLE: <%= scroll_paginate(:url => 'http://example.com',
-      #							:total_results => 100,
-      #							:container => "#mycontainer",
-      #							:current_page => 0, 
-      #							:per_page => 20, 
-      #							:pager_var => 'p',
-      #							:loader_img_path => 'images/loader.gif', 
-      #							:debug => 1) %>
+      #                              :total_results => 100,
+      #                              :container => "#mycontainer",
+      #                              :current_page => 0, 
+      #                              :per_page => 20, 
+      #                              :pager_var => 'p',
+      #                              :loader_img_path => 'images/loader.gif', 
+      #                              :debug => 1) %>
       # :url ( required field :EXAMPLE => 'http://example.com' )
       # :total_results ( required field :EXAMPLE => User.count )
       # :container ( required field :EXAMPLE => Container Div for scroll pagination )
