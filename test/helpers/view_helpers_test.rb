@@ -3,33 +3,50 @@ require File.join(File.dirname(__FILE__), '../test_helper.rb')
 class ViewHelpersTest < ActionView::TestCase
   include ScrollPaginate::Helpers::ViewHelpers
 
-	should "have scroll_paginate" do
-    assert scroll_paginate(:url => 'http://example.com', :total_results => 100,
-													 :container => "mycontainer")
+	context "have scroll_paginate" do
+	  should  "return true" do
+      assert scroll_paginate(:url => 'http://example.com', :total_results => 100,
+													   :container => "mycontainer")
+		end
   end
   
-  should "generate scroll_pagination " do
-    setup do
-      @html = "<script type='text/javascript'>\n
-	    \t\t\t\t\t\t\t\t\t$(document).ready(function(){\n
-	    \t\t\t\t\t\t\t\t  \t$('body').flexiPagination({\n
-	    \t\t\t\t\t\t\t\t  \t\turl: 'http://example.com',\n
-	    \t\t\t\t\t\t\t\t\t\t\ttotalResults: 100,\n
-	    \t\t\t\t\t\t\t\t\t\t\tcontainer: '#mycontainer',\t\t\t\t\t\t\t\t \t\t\t\n
-	    \t\t\t\t\t\t\t\t\t\t\tcurrentPage: 0,\n
-	    \t\t\t\t\t\t\t\t \t\t\tperPage: 20,\n
-	    \t\t\t\t\t\t\t\t \t\t\tpagerVar : 'p',\n
-	    \t\t\t\t\t\t\t\t \t\t\tloaderImgPath: 'images/scroll_paginate/default/loader.gif',\n
-	    \t\t\t\t\t\t\t\t \t\t\tdebug : 1\n
-	    \t\t\t\t\t\t\t\t  \t});\n
-	    \t\t\t\t\t\t\t\t\t});\n
-	    \t\t\t\t\t\t\t\t</script>"
+  context "generate scroll_pagination " do
+    context "with minimum option" do
+      setup do
+        @result_array = []
+        @expected_array = ["<script type='text/javascript'>", "$(document).ready(function(){", "$('body').flexiPagination({", 
+                           "url: 'http://example.com',", "totalResults: 100,", "container: '#mycontainer',", "currentPage: 0,", 
+                           "perPage: 20,", "pagerVar : 'p',", "loaderImgPath: 'images/scroll_paginate/default/loader.gif',", 
+                           "debug : 1", "});", "});", "</script>"]
+
+        result_html = scroll_paginate(:url => 'http://example.com', :total_results => 100, 
+                                         :container => "mycontainer")
+        result_html.each {|s| @result_array << s.strip}
+      end
+
+  	  should "return true when result_array and expected_array are same" do
+  		  assert_equal @result_array, @expected_array
+  	  end
     end
     
-	  should "with minimum option" do
-		  assert_equal scroll_paginate(:url => 'http://example.com', 
-		                               :total_results => 100,
-													         :container => "mycontainer"), @html
-	  end
+    context "with maximum option" do
+      setup do
+        @result_array = []
+        @expected_array = ["<script type='text/javascript'>", "$(document).ready(function(){", "$('body').flexiPagination({", 
+                           "url: 'http://abc.com',", "totalResults: 200,", "container: '#mycustomcontainer',", "currentPage: 2,", 
+                           "perPage: 10,", "pagerVar : 'page',", "loaderImgPath: 'images/custom/loader.gif',", 
+                           "debug : 1", "});", "});", "</script>"]
+
+        result_html = scroll_paginate(:url => 'http://abc.com', :total_results => 200,
+                                      :container => "mycustomcontainer", :current_page => 2, 
+                                      :per_page => 10, :pager_var => 'page', :loader_img_path => 'images/custom/loader.gif', 
+                                      :debug => 1)
+        result_html.each {|s| @result_array << s.strip}
+      end
+
+  	  should "return true when result_array and expected_array are same" do
+  		  assert_equal @result_array, @expected_array
+  	  end
+    end
 	end
 end
