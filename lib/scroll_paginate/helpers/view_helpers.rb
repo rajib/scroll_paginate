@@ -5,7 +5,7 @@ module ScrollPaginate
       #	scroll pagination.
       # EXAMPLE: <%= scroll_paginate(:url => 'http://example.com',
       #                              :total_results => 100,
-      #                              :container => "#mycontainer",
+      #                              :container => "mycontainer",
       #                              :current_page => 0, 
       #                              :per_page => 20, 
       #                              :pager_var => 'p',
@@ -48,7 +48,7 @@ module ScrollPaginate
       def setup_options(options)
         @url = options[:url]
         @total_results = options[:total_results]
-        @container = options[:container]
+        @container = "##{options[:container]}" # concait # for DIV id
         @current_page = options[:current_page] || 0
         @per_page = options[:per_page] || 20
         @pager_var = options[:pager_var] || 'p'
