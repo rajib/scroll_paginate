@@ -27,7 +27,7 @@ module ScrollPaginate
       #	many results are being displayed per page. Defaults to 50.),
       #	:pager_var ( optional :DESCRIPTION => Related to currentPage, gets appended to url as a GET var to help
       # your backend script keep track of which page of results the user is on (e.g. index.php?page=2).
-      # Defaults to "p" ),
+      # Defaults to "p" ), [:NOTE] this feature is not available now
       #	:loader_img_path ( optional :DESCRIPTION => Tell the plugin where to find the loader img relative to
       #	the page calling the plugin. Defaults to "images/scroll_paginate/default/loader.gif" ),
       #	:debug ( optional :DESCRIPTION => When set to 1, the plugin will print debugging information to the
