@@ -21,7 +21,7 @@
    			totalResults: 100,
    			perPage: 25,
    			container: "body",
-   			//pagerVar : "p", // [:TODO] will enable this feature later
+   			pagerVar : "page",
    			loaderImgPath: "images/loader.gif",
    			debug : 0
 		}
@@ -61,11 +61,11 @@
 		           // Note: this needs to be calculated just before the ajax call since our currentPage counter is updated each time the event is executed
 		           if (config.url != "") {
 						config.url = config.url;
-						data = {page: config.currentPage + 1};
+						data[config.pagerVar] = config.currentPage + 1;
 					} else {
 						// the default url is the current window location with the pageVar and currentPage values attached
 						config.url = window.location;
-						data = {page: config.currentPage + 1};
+						data[config.pagerVar] = config.currentPage + 1;
 					}
 
 				   //if (config.debug)
