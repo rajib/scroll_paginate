@@ -6,8 +6,68 @@ Plugin for js scroll pagination. Inspired by ActiveScaffold
 
 Example
 =======
+<h2> Controller</h2>
+class UsersController < ApplicationController
+  # GET /users
+  # GET /users.xml
+  def index
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @users }
+    end
+  end
 
-In Development
+  # fetch_by_offset_users
+  # GET    /users/fetch_by_offset
+  def fetch_by_offset
+    respond_to do |format|
+      format.js { render :partial => 'fetch_by_offset', :locals => {:page => params[:page]} }
+    end
+  end
+end
+
+<h2> View Helper</h2>
+module UsersHelper
+  def generate_list(num, page=nil)
+    offset = calculate_offset(num, page)
+
+    # AR stuffs
+    collection = User.find(:all, :limit => num, :offset => offset)
+    #
+
+    content = []
+    for i in collection
+      content << "<li> #{i.name} </li>"
+    end
+
+    sleep(2)
+    return content
+  end
+end
+
+<h2> Views</h2>
+</strong>users/index.html.erb</strong>
+<ol id="mycontainer">
+  <%= generate_list(25) %>
+</ol>
+
+</strong>users/_fetch_by_offset.erb</strong>
+<%= generate_list(25, page) %>
+
+<strong>layouts/application.html.erb</strong>
+<head>
+  <%= javascript_include_tag('jquery') %>
+  <%= include_scroll_paginate %>
+  <%= scroll_paginate(:url => "/users/fetch_by_offset",
+                      :total_results => 200,
+											:container => "mycontainer",
+											:per_page => 20, :pager_var => "page") %>
+
+</head>
+
+
+<a href="/users">View Rails App demo</a>
 
 
 Copyright (c) 2010 Rajib Chowdhury, released under the MIT license
+
