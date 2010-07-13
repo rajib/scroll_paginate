@@ -17,6 +17,7 @@ module ScrollPaginate
       #                              :per_page => 20,
       #                              :pager_var => 'page',
       #                              :loader_img_path => 'images/loader.gif',
+      #                              :loader_text => 'Loading...',
       #                              :debug => 1) %>
       # :url ( required field :EXAMPLE => 'example.com', :NOTE => Dont put http;// )
       # :total_results ( required field :EXAMPLE => User.count )
@@ -30,6 +31,7 @@ module ScrollPaginate
       # Defaults to "page" )
       #	:loader_img_path ( optional :DESCRIPTION => Tell the plugin where to find the loader img relative to
       #	the page calling the plugin. Defaults to "images/scroll_paginate/default/loader.gif" ),
+      # :loader_text ( optional :DESCRIPTION => Add a text msg to Ajax loader )
       #	:debug ( optional :DESCRIPTION => When set to 1, the plugin will print debugging information to the
       #	console (firebug). Defaults to 0  ) %>
       def scroll_paginate(options)
