@@ -6,7 +6,7 @@ Plugin for js scroll pagination. Inspired by ActiveScaffold
 
 Example
 =======
-<h2> Controller</h2>
+## Controller
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 end
 
-<h2> View Helper</h2>
+## View Helper
 module UsersHelper
   def generate_list(num, page=nil)
     offset = calculate_offset(num, page)
@@ -45,16 +45,16 @@ module UsersHelper
   end
 end
 
-<h2> Views</h2>
-</strong>users/index.html.erb</strong>
+## Views
+###users/index.html.erb
 <ol id="mycontainer">
   <%= generate_list(25) %>
 </ol>
 
-</strong>users/_fetch_by_offset.erb</strong>
+###users/_fetch_by_offset.erb
 <%= generate_list(25, page) %>
 
-<strong>layouts/application.html.erb</strong>
+###layouts/application.html.erb
 <head>
   <%= javascript_include_tag('jquery') %>
   <%= include_scroll_paginate %>
