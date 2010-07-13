@@ -45,10 +45,16 @@ module ScrollPaginate
                 perPage: #{@per_page},
                 pagerVar : '#{@pager_var}',
                 loaderImgPath: '#{@loader_img_path}',
+                loaderText: '#{@loader_text}',
                 debug : #{@debug}
               });
             });
             </script>"
+      end
+
+      # return calculated offset
+      def calculate_offset(num, page=nil)
+        page ? page.to_i * num : 0
       end
 
       private
@@ -58,8 +64,9 @@ module ScrollPaginate
         @container = "##{options[:container]}" # concait # for DIV id
         @current_page = options[:current_page] || 0
         @per_page = options[:per_page] || 20
-        @pager_var = options[:pager_var] || 'p'
+        @pager_var = options[:pager_var] || 'page'
         @loader_img_path = options[:loader_img_path] || 'images/scroll_paginate/default/loader.gif'
+        @loader_text = options[:loader_text] || 'Loading...'
         @debug = options[:debug] || 1
       end
     end
