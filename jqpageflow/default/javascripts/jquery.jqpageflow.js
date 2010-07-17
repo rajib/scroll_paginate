@@ -73,7 +73,7 @@
 				   //console.log("Generated Url : %s", config.url);
 
 					// update the loader text and display the loader.
-					$("#jqpageflow-text").text(config.loaderText + (config.perPage * ((config.currentPage > 0) ? config.currentPage : 1)) + ' of ' + config.totalResults);
+					$("#jqpageflow-text").text(config.loaderText + (config.perPage * (config.currentPage + 2)) + ' of ' + config.totalResults);
 					$("#jqpageflow-block").show();
 
 		           // execute our ajax call and deal with the result.

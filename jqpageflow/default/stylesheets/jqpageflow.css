@@ -1,8 +1,5 @@
 .jqpageflow-loader {
-	position: absolute;
 	display: none;
-	right: 1%;
-	top:5%;
 	z-index: 99999;
 	bottom: 0;
 }

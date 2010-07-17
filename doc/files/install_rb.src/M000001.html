@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>copy_files (install.rb)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File install.rb, line 8</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">copy_files</span>(<span class="ruby-identifier">source_path</span>, <span class="ruby-identifier">destination_path</span>, <span class="ruby-identifier">directory</span>)
+    <span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">directory</span>, <span class="ruby-identifier">source_path</span>), <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>, <span class="ruby-identifier">destination_path</span>)
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">destination</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">destination</span>)
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp_r</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-identifier">source</span><span class="ruby-operator">+</span><span class="ruby-value str">'/*.*'</span>), <span class="ruby-identifier">destination</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
