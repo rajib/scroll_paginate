@@ -48,11 +48,11 @@ end
 ## Views
 ###users/index.html.erb
 <ol id="mycontainer">
-  <%= generate_list(25) %>
+  <%= generate_list(20) %>
 </ol>
 
 ###users/_fetch_by_offset.erb
-<%= generate_list(25, page) %>
+<%= generate_list(20, page) %>
 
 ###layouts/application.html.erb
 <head>
