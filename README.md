@@ -47,11 +47,9 @@ end
 
 ## Views
 ###users/index.html.erb
-<code>
-<ol id="mycontainer">
+`<ol id="mycontainer">
   <%= generate_list(20) %>
-</ol>
-</code>
+</ol>`
 
 ###users/_fetch_by_offset.erb
 <%= generate_list(20, page) %>
