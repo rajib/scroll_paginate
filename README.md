@@ -56,7 +56,7 @@ end`
 
 ###layouts/application.html.erb
 `<head>
-  <%= javascript_include_tag('jquery') %>
+  <%= javascript_include_tag("jquery") %>
   <%= include_scroll_paginate %>
   <%= scroll_paginate(:url => "/users/fetch_by_offset",
                       :total_results => 200,
