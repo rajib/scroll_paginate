@@ -47,9 +47,11 @@ end
 
 ## Views
 ###users/index.html.erb
+<code>
 <ol id="mycontainer">
   <%= generate_list(20) %>
 </ol>
+</code>
 
 ###users/_fetch_by_offset.erb
 <%= generate_list(20, page) %>
@@ -60,13 +62,14 @@ end
   <%= include_scroll_paginate %>
   <%= scroll_paginate(:url => "/users/fetch_by_offset",
                       :total_results => 200,
-											:container => "mycontainer",
-											:per_page => 20, :pager_var => "page") %>
+					  :container => "mycontainer",
+					  :per_page => 20,
+					  :pager_var => "page") %>
 
 </head>
 
 
-<a href="/users">View Rails App demo</a>
+<a href="http://scrollpaginate.heroku.com/">View Rails App demo</a>
 
 
 Copyright (c) 2010 Rajib Chowdhury, released under the MIT license
