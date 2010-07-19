@@ -55,7 +55,7 @@ end`
 `<%= generate_list(20, page) %>`
 
 ###layouts/application.html.erb
-`<head>
+`\<head\>
   <%= javascript_include_tag("jquery") %>
   <%= include_scroll_paginate %>
   <%= scroll_paginate(:url => "/users/fetch_by_offset",
