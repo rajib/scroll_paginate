@@ -7,24 +7,24 @@ Plugin for js scroll pagination. Inspired by ActiveScaffold
 Example
 =======
 ## Controller
-`class UsersController < ApplicationController
-  # GET /users
-  # GET /users.xml
-  def index
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @users }
-    end
-  end
+    class UsersController < ApplicationController
+      # GET /users
+      # GET /users.xml
+      def index
+        respond_to do |format|
+          format.html # index.html.erb
+          format.xml  { render :xml => @users }
+        end
+      end
 
-  # fetch_by_offset_users
-  # GET    /users/fetch_by_offset
-  def fetch_by_offset
-    respond_to do |format|
-      format.js { render :partial => 'fetch_by_offset', :locals => {:page => params[:page]} }
+      # fetch_by_offset_users
+      # GET    /users/fetch_by_offset
+      def fetch_by_offset
+        respond_to do |format|
+          format.js { render :partial => 'fetch_by_offset', :locals => {:page => params[:page]} }
+        end
+      end
     end
-  end
-end`
 
 ## View Helper
 `module UsersHelper
@@ -55,7 +55,7 @@ end`
 `<%= generate_list(20, page) %>`
 
 ###layouts/application.html.erb
-``<head>
+`<head>
   <%= javascript_include_tag("jquery") %>
   <%= include_scroll_paginate %>
   <%= scroll_paginate(:url => "/users/fetch_by_offset",
@@ -64,7 +64,7 @@ end`
 					  :per_page => 20,
 					  :pager_var => "page") %>
 
-</head>``
+</head>`
 
 
 <a href="http://scrollpaginate.heroku.com/">View Rails App demo</a>
