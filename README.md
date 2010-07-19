@@ -55,7 +55,7 @@ end`
 `<%= generate_list(20, page) %>`
 
 ###layouts/application.html.erb
-`\<head\>
+``<head>
   <%= javascript_include_tag("jquery") %>
   <%= include_scroll_paginate %>
   <%= scroll_paginate(:url => "/users/fetch_by_offset",
@@ -64,7 +64,7 @@ end`
 					  :per_page => 20,
 					  :pager_var => "page") %>
 
-</head>`
+</head>``
 
 
 <a href="http://scrollpaginate.heroku.com/">View Rails App demo</a>
