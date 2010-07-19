@@ -3,7 +3,7 @@ ScrollPaginate
 
 Plugin for js scroll pagination. Inspired by ActiveScaffold
 
-*[heroku]: http://scrollpaginate.heroku.com/  "View Rails App demo"
+*[heroku]: <http://scrollpaginate.heroku.com/>  "View Rails App demo"
 *<a href="http://scrollpaginate.heroku.com/doc/index.html">Documentation</a>
 
 Installation
