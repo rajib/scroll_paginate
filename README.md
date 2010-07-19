@@ -27,44 +27,43 @@ Example
     end
 
 ## View Helper
-`module UsersHelper
-  def generate_list(num, page=nil)
-    offset = calculate_offset(num, page)
+    module UsersHelper
+      def generate_list(num, page=nil)
+        offset = calculate_offset(num, page)
 
-    # AR stuffs
-    collection = User.find(:all, :limit => num, :offset => offset)
-    #
+        # AR stuffs
+        collection = User.find(:all, :limit => num, :offset => offset)
+        #
 
-    content = []
-    for i in collection
-      content << "<li> #{i.name} </li>"
+        content = []
+        for i in collection
+          content << "<li> #{i.name} </li>"
+        end
+
+        sleep(2)
+        return content
+      end
     end
-
-    sleep(2)
-    return content
-  end
-end`
 
 ## Views
 ###users/index.html.erb
-`<ol id="mycontainer">
-  <%= generate_list(20) %>
-</ol>`
+    <ol id="mycontainer">
+      <%= generate_list(20) %>
+    </ol>
 
 ###users/_fetch_by_offset.erb
 `<%= generate_list(20, page) %>`
 
 ###layouts/application.html.erb
-`<head>
-  <%= javascript_include_tag("jquery") %>
-  <%= include_scroll_paginate %>
-  <%= scroll_paginate(:url => "/users/fetch_by_offset",
-                      :total_results => 200,
-					  :container => "mycontainer",
-					  :per_page => 20,
-					  :pager_var => "page") %>
-
-</head>`
+    <head>
+      <%= javascript_include_tag("jquery") %>
+      <%= include_scroll_paginate %>
+      <%= scroll_paginate(:url => "/users/fetch_by_offset",
+                          :total_results => 200,
+					      :container => "mycontainer",
+					      :per_page => 20,
+					      :pager_var => "page") %>
+    </head>
 
 
 <a href="http://scrollpaginate.heroku.com/">View Rails App demo</a>
